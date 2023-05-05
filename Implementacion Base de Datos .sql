@@ -31,6 +31,7 @@ CREATE TABLE Concesion
 	id serial,
 	nombre varchar(15),
 	anio_otorgado integer,
+	codigo varchar(5),
 	PRIMARY KEY(id)
 );
 
