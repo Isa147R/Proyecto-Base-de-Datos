@@ -29,6 +29,7 @@ CREATE TABLE Operador
 CREATE TABLE Concesion
 (
 	id serial,
+	nombre varchar(15),
 	anio_otorgado integer,
 	PRIMARY KEY(id)
 );
