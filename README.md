@@ -1,6 +1,10 @@
-Archivo Diagrama Relacional y Diagrama Entidad-Relacion
+Archivo Entrega 1 
 
 https://docs.google.com/document/d/16NXHqanFjoDwv__zVQXc22JTUCOoNlt8p6cQrAkjkoo/edit?usp=sharing
+
+Archivo Entrega 2 
+
+https://docs.google.com/document/d/1Yox3W5UrNxqTQvic8l5I3SPlPGzqUxwCFDxLhhm3_88/edit?usp=sharing
 
 Archivos Datos 
 
