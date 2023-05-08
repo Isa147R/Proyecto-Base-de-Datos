@@ -36,7 +36,7 @@ Select * from Mes;
 COPY Tipo_emisor(nombre,codigo)  FROM '/Users/isabela/emisor.csv' WITH DELIMITER ';' CSV HEADER;
 Select * from Tipo_emisor;
 
-COPY Linea(nombre)  FROM '/Users/isabela/Linea1.csv' WITH DELIMITER ';' CSV HEADER;
+COPY Linea(nombre,id_Zona)  FROM '/Users/isabela/Linea1.csv' WITH DELIMITER ';' CSV HEADER;
 Select * from Linea;
 
 COPY Estacion(nombre,id_Linea)  FROM '/Users/isabela/Estaciones1.csv' WITH DELIMITER ';' CSV HEADER;
