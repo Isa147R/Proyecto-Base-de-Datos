@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="24"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="Vehiculo" layer="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="20"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="etiqueta">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="matricula">
+		<type name="varchar" length="6"/>
+	</column>
+	<column name="Modelo">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="Vehiculo_pk" type="pk-constr" table="public.&quot;Vehiculo&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Concesion" index="4"/>
+		<object name="id_Marca" index="5"/>
+		<object name="id_Nivel_emision" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Concesion_fk" index="1"/>
+		<object name="Marca_fk" index="2"/>
+		<object name="Nivel_emision_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="Servicio" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="900" y="20"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Servicio_pk" type="pk-constr" table="public.&quot;Servicio&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Accesibilidad" index="3"/>
+		<object name="id_Tipo_servicio" index="1"/>
+		<object name="id_Tipo_vehiculo" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Accesibilidad_fk" index="3"/>
+		<object name="Tipo_servicio_fk" index="1"/>
+		<object name="Tipo_vehiculo_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="Concesion" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="280"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="anio_otorgado">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="codigo">
+		<type name="varchar" length="15"/>
+	</column>
+	<constraint name="Concesion_pk" type="pk-constr" table="public.&quot;Concesion&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Linea" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="520"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="linea_pk" type="pk-constr" table="public.&quot;Linea&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Estacion" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="520"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="Estacion_pk" type="pk-constr" table="public.&quot;Estacion&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Salidas" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="900" y="400"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="total">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="intervalo">
+		<type name="time" length="0"/>
+	</column>
+	<constraint name="Salidas_pk" type="pk-constr" table="public.&quot;Salidas&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Estacion" index="3"/>
+		<object name="id_Mes" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Estacion_fk" index="1"/>
+		<object name="Mes_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="Transaccion" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="700"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="saldo_antes">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="saldo_despues">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Transacciones_pk" type="pk-constr" table="public.&quot;Transaccion&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Tarjeta" index="4"/>
+		<object name="id_dispositivo" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Tarjeta_fk" index="2"/>
+		<object name="dispositivo_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Tarjeta" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="900" y="860"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="numero_tarjeta">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="Tarjeta_pk" type="pk-constr" table="public.&quot;Tarjeta&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Tipo_emisor" index="2"/>
+		<object name="id_Tipo_perfil" index="3"/>
+		<object name="id_tipo_tarjeta" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Tipo_emisor_fk" index="1"/>
+		<object name="Tipo_perfil_fk" index="2"/>
+		<object name="tipo_tarjeta_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="Tipo_emisor" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1340" y="860"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="codigo">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Emisor_pk" type="pk-constr" table="public.&quot;Tipo_emisor&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Emisor_has_many_Tarjeta" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Tipo_emisor&quot;"
+	 dst-table="public.&quot;Tarjeta&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Estacion_has_many_Salidas" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Estacion&quot;"
+	 dst-table="public.&quot;Salidas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Concesion_has_many_Vehiculo" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Concesion&quot;"
+	 dst-table="public.&quot;Vehiculo&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="157.867" y="-21.1323"/>
+	</label>
+</relationship>
+
+<table name="Pagar" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="900" y="640"/>
+</table>
+
+<relationship name="Transacciones_has_many_Pagar" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Transaccion&quot;"
+	 dst-table="public.&quot;Pagar&quot;"
+	 src-required="true" dst-required="false"
+	 identifier="true"
+/>
+
+<relationship name="Estacion_has_many_Pagar" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Estacion&quot;"
+	 dst-table="public.&quot;Pagar&quot;"
+	 src-required="true" dst-required="false"
+	 identifier="true"
+/>
+
+<table name="Zona" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="380"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="Modelo_pk" type="pk-constr" table="public.&quot;Zona&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Marca" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="20"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="marca_pk" type="pk-constr" table="public.&quot;Marca&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="marca_has_many_Vehiculo" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Marca&quot;"
+	 dst-table="public.&quot;Vehiculo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Nivel_emision" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="140"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="tipo">
+		<type name="varchar" length="45"/>
+	</column>
+	<constraint name="nivel_emision_pk" type="pk-constr" table="public.&quot;Nivel_emision&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="nivel_emision_has_many_Vehiculo" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Nivel_emision&quot;"
+	 dst-table="public.&quot;Vehiculo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Tipo_servicio" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1360" y="20"/>
+	<column name="nombre">
+		<type name="varchar" length="7"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tipo_servicio_pk" type="pk-constr" table="public.&quot;Tipo_servicio&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_servicio_has_many_Servicio" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Tipo_servicio&quot;"
+	 dst-table="public.&quot;Servicio&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Tipo_vehiculo" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1360" y="140"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="tipo_vehiculo_pk" type="pk-constr" table="public.&quot;Tipo_vehiculo&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_vehiculo_has_many_Servicio" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8753cf"
+	 src-table="public.&quot;Tipo_vehiculo&quot;"
+	 dst-table="public.&quot;Servicio&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="20.6292" y="-15.0232"/>
+	</label>
+</relationship>
+
+<table name="Accesibilidad" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1360" y="260"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="accesibilidad_pk" type="pk-constr" table="public.&quot;Accesibilidad&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="accesibilidad_has_many_Servicio" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Accesibilidad&quot;"
+	 dst-table="public.&quot;Servicio&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Mes" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1360" y="400"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="mes_pk" type="pk-constr" table="public.&quot;Mes&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="mes_has_many_Salidas" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Mes&quot;"
+	 dst-table="public.&quot;Salidas&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="12.7312" y="-57.15"/>
+	</label>
+</relationship>
+
+<table name="dispositivo" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="700"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codigo">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="dispositivo_pk" type="pk-constr" table="public.dispositivo">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="dispositivo_has_many_Transaccion" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.dispositivo"
+	 dst-table="public.&quot;Transaccion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Tipo_perfil" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="860"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="tipo_perfil_pk" type="pk-constr" table="public.&quot;Tipo_perfil&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_perfil_has_many_Tarjeta" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Tipo_perfil&quot;"
+	 dst-table="public.&quot;Tarjeta&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="tipo_tarjeta" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="1000"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="tipo_tarjeta_pk" type="pk-constr" table="public.tipo_tarjeta">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_tarjeta_has_many_Tarjeta" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.tipo_tarjeta"
+	 dst-table="public.&quot;Tarjeta&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="23.7157" y="27.0381"/>
+	</label>
+	<label ref-type="dst-label">
+		<position x="9.85" y="17.8228"/>
+	</label>
+</relationship>
+
+<relationship name="Tarjeta_has_many_Transaccion" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Tarjeta&quot;"
+	 dst-table="public.&quot;Transaccion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Linea_has_many_Estacion" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Linea&quot;"
+	 dst-table="public.&quot;Estacion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Zona_has_many_Servicio" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Zona&quot;"
+	 dst-table="public.&quot;Servicio&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="93.1514" y="21.2023"/>
+	</label>
+</relationship>
+
+<relationship name="Zona_has_many_Vehiculo" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Zona&quot;"
+	 dst-table="public.&quot;Vehiculo&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="5.40812" y="2.85"/>
+	</label>
+	<label ref-type="name-label">
+		<position x="-89.9026" y="-22.3323"/>
+	</label>
+</relationship>
+
+<relationship name="Zona_has_many_Linea" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a690c8"
+	 src-table="public.&quot;Zona&quot;"
+	 dst-table="public.&quot;Linea&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
