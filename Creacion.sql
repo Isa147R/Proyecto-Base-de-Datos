@@ -89,7 +89,10 @@ CREATE TABLE Linea
 (
 	id serial,
 	nombre varchar(30),
-	PRIMARY KEY(id)
+	id_Zona integer,
+	PRIMARY KEY(id),
+	FOREIGN KEY(id_Zona)
+		REFERENCES Zona(id)
 );
 
 CREATE TABLE Estacion
