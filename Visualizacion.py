@@ -3,10 +3,7 @@ import psycopg2
 
 try:
 
-	conexion = psycopg2.connect(user = "postgres",
-					            password = "123456789",
-					            database = "Proyecto",
-					            port = "5432")
+	conexion = psycopg2.connect(user = "postgres", password = "123456789", database = "Proyecto", port = "5432")
 	print("Conexion correcta")
 	
 #Ejecutar las sentencias para mostrar los elementos tabla Zona
