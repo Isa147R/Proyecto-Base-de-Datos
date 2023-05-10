@@ -37,7 +37,7 @@ try:
 	cursor.execute(Tabla3)
 	Concesion = cursor.fetchall()
 	for c in Concesion:
-		print("ID",Concesion[0])
+		print("ID",c[0])
 		print("nombre",c[1])
 		print("codigo",c[2])
 		print("anio_otorgado",c[3])
@@ -136,7 +136,7 @@ try:
 	cursor.execute(Tabla12)
 	Tipo_emisor = cursor.fetchall()
 	for t in Tipo_emisor:
-		print("ID",Tipo_emisor[0])
+		print("ID",t[0])
 		print("nombre",t[1])
 		print("codigo",t[2])
 
