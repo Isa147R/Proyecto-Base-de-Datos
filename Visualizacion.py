@@ -1,9 +1,8 @@
-
 import psycopg2
 
 try:
 
-	conexion = psycopg2.connect(user = "postgres", password = "123456789", database = "Proyecto", port = "5432")
+	conexion = psycopg2.connect(user = "postgres", password = "123456789", host="localhost", database = "Proyecto", port = "5432")
 	print("Conexion correcta")
 	
 #Ejecutar las sentencias para mostrar los elementos tabla Zona
@@ -22,7 +21,8 @@ try:
 	print("--------ACCESIBILIDAD---------")
 	Tabla2 = """SELECT id, nombre 
 		  FROM Accesibilidad;"""
-          
+
+	cursor = conexion.cursor()
 	cursor.execute(Tabla2)
 	Accesibilidad = cursor.fetchall()
 	for a in Accesibilidad:
@@ -33,7 +33,8 @@ try:
 	print("--------CONCESION---------")
 	Tabla3 = """SELECT id, nombre, codigo, anio_otorgado 
 		  FROM Concesion;"""
-          
+
+	cursor = conexion.cursor()
 	cursor.execute(Tabla3)
 	Concesion = cursor.fetchall()
 	for c in Concesion:
@@ -46,6 +47,8 @@ try:
 	print("--------DISPOSITIVO---------")
 	Tabla4 = """SELECT id, codigo 
 		  FROM Dispositivo;"""
+
+	cursor = conexion.cursor()
 	cursor.execute(Tabla4)
 	Dispositivo = cursor.fetchall()
 	for d in Dispositivo:
@@ -56,6 +59,8 @@ try:
 	print("--------TIPO_VEHICULO---------")
 	Tabla5 = """SELECT id, nombre 
 		  FROM Tipo_vehiculo;"""
+
+	cursor = conexion.cursor()
 	cursor.execute(Tabla5)
 	Tipo_vehiculo = cursor.fetchall()
 	for t in Tipo_vehiculo:
@@ -67,6 +72,7 @@ try:
 	Tabla6 = """SELECT id, nombre 
 		  FROM Marca;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla6)
 	Marca = cursor.fetchall()
 	for m in Marca:
@@ -78,6 +84,7 @@ try:
 	Tabla7 = """SELECT id, tipo
 		  FROM Nivel_emision;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla7)
 	Nivel_emision = cursor.fetchall()
 	for n in Nivel_emision:
@@ -89,6 +96,7 @@ try:
 	Tabla8 = """SELECT id, nombre 
 		  FROM Tipo_perfil;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla8)
 	Tipo_perfil = cursor.fetchall()
 	for t in Tipo_perfil:
@@ -100,6 +108,7 @@ try:
 	Tabla9 = """SELECT id, nombre 
 		  FROM Tipo_tarjeta;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla9)
 	Tipo_tarjeta = cursor.fetchall()
 	for t in Tipo_tarjeta:
@@ -111,6 +120,7 @@ try:
 	Tabla10 = """SELECT id, nombre 
 		  FROM Tipo_servicio;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla10)
 	Tipo_servicio = cursor.fetchall()
 	for t in Tipo_servicio:
@@ -122,6 +132,7 @@ try:
 	Tabla11 = """SELECT id, nombre 
         		  FROM Mes;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla11)
 	Mes = cursor.fetchall()
 	for m in Mes:
@@ -133,6 +144,7 @@ try:
 	Tabla12 = """SELECT id, nombre, codigo 
 		  FROM Tipo_emisor;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla12)
 	Tipo_emisor = cursor.fetchall()
 	for t in Tipo_emisor:
@@ -145,6 +157,7 @@ try:
 	Tabla13 = """SELECT id, nombre, id_Zona 
 		  FROM Linea;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla13)
 	Linea = cursor.fetchall()
 	for l in Linea:
@@ -157,6 +170,7 @@ try:
 	Tabla14 = """SELECT id, nombre, id_Linea 
 		  FROM Estacion;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla14)
 	Estacion = cursor.fetchall()
 	for e in Estacion:
@@ -169,6 +183,7 @@ try:
 	Tabla15 = """SELECT id, total, intervalo, id_Estacion, id_Mes 
 		  FROM Salidas;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla15)
 	Salidas = cursor.fetchall()
 	for s in Salidas:
@@ -183,6 +198,7 @@ try:
 	Tabla16 = """SELECT id, numero_tarjeta, id_Tipo_emisor, id_Tipo_perfil, id_Tipo_tarjeta 
 		  FROM Tarjeta;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla16)
 	Tarjeta = cursor.fetchall()
 	for t in Tarjeta:
@@ -196,7 +212,8 @@ try:
 	print("--------TRANSACCION---------")
 	Tabla17 = """SELECT id, saldo_antes, saldo_despues, id_Tarjeta, id_Dispositivo 
 		  FROM Transaccion;"""
-          
+
+	cursor = conexion.cursor() 
 	cursor.execute(Tabla17)
 	Transaccion = cursor.fetchall()
 	for t in Transaccion:
@@ -211,6 +228,7 @@ try:
 	Tabla18 = """SELECT id, id_Zona, id_Tipo_servicio, id_Tipo_vehiculo, id_Accesibilidad
 		  FROM Servicio;"""
 
+	cursor = conexion.cursor()
 	cursor.execute(Tabla18)
 	Servicio = cursor.fetchall()
 	for s in Servicio:
@@ -224,7 +242,8 @@ try:
 	print("--------VEHICULO---------")
 	Tabla19 = """SELECT id, etiqueta, matricula, id_Concesion, modelo, id_Marca, id_Nivel_emision, id_Zona 
 		  FROM Vehiculo;"""
-          
+
+	cursor = conexion.cursor()  
 	cursor.execute(Tabla19)
 	Vehiculo = cursor.fetchall()
 	for v in Vehiculo:
@@ -241,7 +260,8 @@ try:
 	print("--------PAGAR---------")
 	Tabla20 = """SELECT id,_Estacion, id_Transaccion 
 		  FROM Pagar;"""
-          
+
+	cursor = conexion.cursor()  
 	cursor.execute(Tabla20)
 	Pagar = cursor.fetchall()
 	for p in Pagar:
@@ -251,10 +271,9 @@ try:
 
 
 except psycopg2.Error as e:
-    
-	print("Ocurrio un error al consultar",e)
-	
+        print("Ocurrio un error",e)
+
 finally:
-    
-	cursor.close()
-	conexion.close()
+
+        cursor.close()
+        conexion.close()
