@@ -258,7 +258,7 @@ try:
 
 #Ejecutar las sentencias para mostrar los elementos tabla Pagar
 	print("--------PAGAR---------")
-	Tabla20 = """SELECT id,_Estacion, id_Transaccion 
+	Tabla20 = """SELECT id_Estacion, id_Transaccion 
 		  FROM Pagar;"""
 
 	cursor = conexion.cursor()  
