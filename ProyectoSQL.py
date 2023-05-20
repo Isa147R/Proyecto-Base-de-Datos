@@ -36,3 +36,26 @@ def salidas_por_estacion():
               ORDER BY total_salidas DESC
               LIMIT 5; """
 
+def salidas_hora_pico_3_8():
+    return """SELECT id_Estacion, SUM(total) AS total_salidas
+                FROM Salidas
+                WHERE intervalo >= '15:00:00' AND intervalo <= '20:00:00'
+                GROUP BY id_Estacion
+                ORDER BY total_salidas DESC
+                Limit 10; """
+                
+def generar_grafico_pie_zonas():
+    return """SELECT z.nombre AS zona, COUNT(*) AS cantidad
+               FROM Zona z
+               JOIN Linea l ON z.id = l.id_Zona
+               JOIN Estacion e ON l.id = e.id_Linea
+               JOIN Salidas s ON e.id = s.id_Estacion
+               GROUP BY z.nombre;"""
+        
+def registros_por_servicio():
+    return """ SELECT ts.nombre AS tipo_servicio, COUNT(*) AS cantidad
+                FROM Tipo_servicio ts
+                JOIN Servicio se ON ts.id = se.id_Tipo_servicio
+                GROUP BY ts.nombre; """
+
+
