@@ -72,6 +72,28 @@ figBarCases2.update_layout(
     )
 )
 
+# salidas por estaciones
+
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_por_estacion(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["nombre","total_salidas"])
+figBarCases3 = px.bar(dfCases.head(20),x="nombre", y="total_salidas",color_discrete_sequence=['#0B1F2A'])
+
+figBarCases3.update_layout(
+    plot_bgcolor='#FADBD8'
+)
+figBarCases3.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#11414E',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
 #Layout
 
 app.layout = html.Div(children=[
@@ -195,6 +217,46 @@ app.layout = html.Div(children=[
                 )
             ]
         ),
+    html.Div(style={'height': '50px'}),
+    html.Div(
+            className='container',
+            style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '20px','font-family': 'Arial, sans-serif'},
+            children=[
+                html.Div(
+                    style={'width': '50%'},
+                    children=[
+                        html.Div(style={'height': '30px'}),
+                        html.Div(
+                            style={'width': '50%', 'display': 'flex', 'justify-content': 'flex-end', 'margin-left': '0px'},
+                            children = [
+                                html.H3("Salidas por estacion", style={'margin-left': '50px'})
+                            ]
+                            ),  
+                        dcc.Graph(
+                            id='barsalidas_por_estacion',
+                            figure=figBarCases3,
+                            style={'width': '100%'}
+                        )
+                    ]
+                ),
+                html.Div(
+                    style={'margin-left': '20px', 'width': '50%', 'white-space': 'pre-wrap'},
+                    children=[
+                        html.H3(" ¿Ques estaciones registraron mas salidas? "),
+                        html.Div(style={'height': '20px'}),
+                        html.H6("""
+                        SELECT Estacion.nombre, SUM(Salidas.total) AS total_salidas
+                        FROM Salidas
+                        JOIN Estacion ON Salidas.id_Estacion = Estacion.id
+                        JOIN Mes ON Salidas.id_Mes = Mes.id
+                        WHERE Mes.id=1
+                        GROUP BY Estacion.nombre
+                        ORDER BY total_salidas DESC
+                        LIMIT 5; """),                        
+                    ]
+                )
+            ]
+        ),                            
     html.Label('Color Picker'),
     dcc.Input(
         id='our-color-picker',
