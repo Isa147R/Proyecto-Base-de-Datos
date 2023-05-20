@@ -60,9 +60,6 @@ dfCases = pd.DataFrame(query,columns=["perfil","total_utilizado"])
 figBarCases2 = px.bar(dfCases.head(20),x="perfil", y="total_utilizado",color_discrete_sequence=['#0B1F2A'])
 
 figBarCases2.update_layout(
-    plot_bgcolor='#FADBD8'
-)
-figBarCases2.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='#11414E',
     font=dict(
@@ -81,9 +78,6 @@ con.closeConnection1()
 dfCases = pd.DataFrame(query,columns=["nombre","total_salidas"])
 figBarCases3 = px.bar(dfCases.head(20),x="nombre", y="total_salidas",color_discrete_sequence=['#0B1F2A'])
 
-figBarCases3.update_layout(
-    plot_bgcolor='#FADBD8'
-)
 figBarCases3.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='#11414E',
@@ -242,7 +236,7 @@ app.layout = html.Div(children=[
                 html.Div(
                     style={'margin-left': '20px', 'width': '50%', 'white-space': 'pre-wrap'},
                     children=[
-                        html.H3(" ¿Ques estaciones registraron mas salidas? "),
+                        html.H3(" ¿Que estaciones registraron mas salidas? "),
                         html.Div(style={'height': '20px'}),
                         html.H6("""
                         SELECT Estacion.nombre, SUM(Salidas.total) AS total_salidas
