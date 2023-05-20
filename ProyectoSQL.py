@@ -25,3 +25,14 @@ def tipo_perfil_mas_utilizado():
                 JOIN Tipo_perfil tp ON t.id_Tipo_perfil = tp.id
                 GROUP BY tp.nombre
                 ORDER BY total_utilizado DESC; """
+
+def salidas_por_estacion():
+    return """SELECT Estacion.nombre, SUM(Salidas.total) AS total_salidas
+              FROM Salidas
+              JOIN Estacion ON Salidas.id_Estacion = Estacion.id
+              JOIN Mes ON Salidas.id_Mes = Mes.id
+              WHERE Mes.id=1
+              GROUP BY Estacion.nombre
+              ORDER BY total_salidas DESC
+              LIMIT 5; """
+
