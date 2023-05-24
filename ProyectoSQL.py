@@ -58,4 +58,83 @@ def registros_por_servicio():
                 JOIN Servicio se ON ts.id = se.id_Tipo_servicio
                 GROUP BY ts.nombre; """
 
+def salidas_americas():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                FROM Zona z
+                JOIN Linea l ON z.id = l.id_Zona
+                JOIN Estacion e ON l.id = e.id_Linea
+                LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                WHERE z.id = 1
+                GROUP BY z.id, z.nombre, e.id, e.nombre;"""
 
+def salidas_NQSUR():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                FROM Zona z
+                JOIN Linea l ON z.id = l.id_Zona
+                JOIN Estacion e ON l.id = e.id_Linea
+                LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                WHERE z.id = 2
+                GROUP BY z.id, z.nombre, e.id, e.nombre;"""
+                
+def salidas_CALLE80():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                FROM Zona z
+                JOIN Linea l ON z.id = l.id_Zona
+                JOIN Estacion e ON l.id = e.id_Linea
+                LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                WHERE z.id = 4
+                GROUP BY z.id, z.nombre, e.id, e.nombre;"""
+                
+def salidas_CALLE26():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 6
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;"""               
+
+def salidas_CARACAS():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 8
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;"""      
+                 
+def salidas_CARRERA10():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 9
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;"""    
+
+def salidas_SUBA():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 10
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;""" 
+                 
+def salidas_CARACASSUR():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 17
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;"""     
+                 
+def salidas_NORTE():
+    return """SELECT e.nombre AS estacion, COUNT(s.id) AS cantidad
+                 FROM Zona z
+                 JOIN Linea l ON z.id = l.id_Zona
+                 JOIN Estacion e ON l.id = e.id_Linea
+                 LEFT JOIN Salidas s ON e.id = s.id_Estacion
+                 WHERE z.id = 18
+                 GROUP BY z.id, z.nombre, e.id, e.nombre;"""   
