@@ -9,7 +9,7 @@ https://docs.google.com/document/d/1Yox3W5UrNxqTQvic8l5I3SPlPGzqUxwCFDxLhhm3_88/
 
 Archivo Entrega 3
 
-https://docs.google.com/document/d/1fsZueQi20ZIQUBbOfSdhB0AIVO5s82qy7aqjmlFqF1E/edit?usp=sharing
+https://docs.google.com/document/d/14y0dWXTwYW0coqs6oGDXXMtTDrZ6g2o_3jtjqx2qNts/edit?usp=sharing
 
 Archivos Datos
 
@@ -18,3 +18,5 @@ https://uredu-my.sharepoint.com/:f:/g/personal/isabela_ruiz_urosario_edu_co/En_0
 Archivo Presentacion
 
 https://www.canva.com/design/DAFj3O5DtWs/xiMB8xIYApwzEGUvqz23cw/view?utm_content=DAFj3O5DtWs&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
+
+https://www.canva.com/design/DAFj9dr-iew/TZZFl_pNzY0_fYHySy7sNQ/view?utm_content=DAFj9dr-iew&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
