@@ -95,6 +95,7 @@ figBarCases3.update_layout(
 
 # ------------------------------------------------- Graficos pie -------------------------------------------------
 
+#--zonas
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.generar_grafico_pie_zonas(),con.connection)
@@ -112,6 +113,25 @@ figPie1.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.generar_grafico_pie_zonas(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","zona"])
+figBarCases4 = px.bar(dfCases.head(20),x="cantidad", y="zona",color_discrete_sequence=['#dde5b6'])
+
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases4.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+# --------AMERICAS
 
 con = Connection1()
 con.openConnection1()
@@ -130,7 +150,25 @@ figPie2.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_americas(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases5 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases5.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---NQSUR
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_NQSUR(),con.connection)
@@ -148,7 +186,25 @@ figPie3.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_NQSUR(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases6 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases6.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---CALLE80
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_CALLE80(),con.connection)
@@ -166,7 +222,25 @@ figPie4.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_CALLE80(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases7 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases7.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---CALLE26
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_CALLE26(),con.connection)
@@ -184,7 +258,25 @@ figPie5.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_CALLE26(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases8 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases8.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---CARACAS
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_CARACAS(),con.connection)
@@ -202,7 +294,25 @@ figPie6.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_CARACAS(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases9 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases9.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---carrera10
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_CARRERA10(),con.connection)
@@ -220,7 +330,25 @@ figPie7.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_CARRERA10(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases10 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases10.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---suba
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_SUBA(),con.connection)
@@ -238,7 +366,25 @@ figPie8.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_SUBA(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases11 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases11.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---caracassur
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_CARACASSUR(),con.connection)
@@ -256,7 +402,25 @@ figPie9.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_CARACASSUR(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases12 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
 
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases12.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+
+#---norte
 con = Connection1()
 con.openConnection1()
 query = pd.read_sql_query(sql.salidas_NORTE(),con.connection)
@@ -274,6 +438,23 @@ figPie10.update_layout(
         color="#FFFFFC"
     )
 )
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.salidas_NORTE(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["cantidad","estacion"])
+figBarCases13 = px.bar(dfCases.head(20),x="cantidad", y="estacion",color_discrete_sequence=['#dde5b6'])
+
+#Configurar la fuente de los graficos Salidas por estaciones
+figBarCases13.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
 
 # ------------------------------------------------- Tabs Graficos de Pie -------------------------------------------------
 tab2_content = dbc.Card([
@@ -282,6 +463,11 @@ tab2_content = dbc.Card([
         dcc.Graph(
             id='piechart',
             figure=figPie1,
+            style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases4,
             style={'width': '100%'}
         )
     ]),
@@ -295,6 +481,11 @@ tab3_content = dbc.Card([
             id='piechart',
             figure=figPie2,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases5,
+            style={'width': '100%'}
         )
     ]),
     
@@ -306,6 +497,11 @@ tab4_content = dbc.Card([
         dcc.Graph(
             id='piechart',
             figure=figPie3,
+            style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases6,
             style={'width': '100%'}
         )
     ]),
@@ -319,6 +515,11 @@ tab5_content = dbc.Card([
             id='piechart',
             figure=figPie4,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases7,
+            style={'width': '100%'}
         )
     ]),
     
@@ -331,6 +532,11 @@ tab6_content = dbc.Card([
             id='piechart',
             figure=figPie5,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases8,
+            style={'width': '100%'}
         )
     ]),
     
@@ -342,6 +548,11 @@ tab7_content = dbc.Card([
         dcc.Graph(
             id='piechart',
             figure=figPie6,
+            style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases9,
             style={'width': '100%'}
         )
     ]),
@@ -356,6 +567,11 @@ tab8_content = dbc.Card([
             id='piechart',
             figure=figPie7,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases10,
+            style={'width': '100%'}
         )
     ]),
     
@@ -369,6 +585,11 @@ tab9_content = dbc.Card([
             id='piechart',
             figure=figPie8,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases11,
+            style={'width': '100%'}
         )
     ]),
     
@@ -380,6 +601,11 @@ tab10_content = dbc.Card([
         dcc.Graph(
             id='piechart',
             figure=figPie9,
+            style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases12,
             style={'width': '100%'}
         )
     ]),
@@ -394,12 +620,15 @@ tab11_content = dbc.Card([
             id='piechart',
             figure=figPie10,
             style={'width': '100%'}
+        ),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases13,
+            style={'width': '100%'}
         )
     ]),
     
 ], className="mt-4", style={'background-color': '#283618'})
-
-
 
 
 
@@ -584,6 +813,7 @@ app.layout = html.Div(children=[
                 )
             ]
         ),
+   
     # ------------------------------------------------- Tabs Grafico Lineas -------------------------------------------------                            
     
     html.Label('Color Picker'),
