@@ -455,11 +455,253 @@ figBarCases13.update_layout(
         color="#FFFFFC"
     )
 )
+# ------------------------------------------------- Analisis Hora-------------------------------------------------
+#--americas
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_americas(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases14 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases14.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab12_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Americas"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases14,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
 
+#--bosa
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_bosa(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases15 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases15.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab13_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Bosa"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases15,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--80
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_80(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases16 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases16.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab14_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora CALLE 80"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases16,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--bolivar
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_bolivar(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases17 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases17.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab15_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Bolivar"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases17,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--engativa
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_engativa(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases18 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases18.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab16_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Engativa"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases18,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--fontibon
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_fontibon(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases19 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases19.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab17_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Fontibon"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases19,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--kennedy
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_kennedy(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases20 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases20.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab18_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Kennedy"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases20,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--perdomo
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_perdomo(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases21 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases21.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab19_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Perdomo"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases21,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
+
+#--cristobal
+con = Connection1()
+con.openConnection1()
+query = pd.read_sql_query(sql.hora_cristobal(),con.connection)
+con.closeConnection1()
+dfCases = pd.DataFrame(query,columns=["hora_del_dia","cantidad_transacciones"])
+figBarCases22 = px.bar(dfCases.head(20),x="hora_del_dia", y="cantidad_transacciones",color_discrete_sequence=['#dde5b6'])
+figBarCases22.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='#283618',
+    font=dict(
+        family="Arial, sans-serif",
+        size=14,
+        color="#FFFFFC"
+    )
+)
+tab20_content = dbc.Card([
+    dbc.CardBody([
+        html.H3("Registros por hora Cristobal"),
+        dcc.Graph(
+            id='piechart',
+            figure=figBarCases22,
+            style={'width': '100%'}
+        )
+    ]),    
+], className="mt-4", style={'background-color': '#283618'})
 # ------------------------------------------------- Tabs Graficos de Pie -------------------------------------------------
 tab2_content = dbc.Card([
     dbc.CardBody([
-        html.H3("Cantidad de registros por zona"),
+        html.H3("Cantidad de registros por Linea"),
         dcc.Graph(
             id='piechart',
             figure=figPie1,
@@ -641,16 +883,16 @@ app.layout = html.Div(children=[
     html.Div(style={'height': '50px'}),
     # ------------------------------------------------- Tabs Pie-------------------------------------------------
     dbc.Tabs([
-        dbc.Tab(tab2_content, label="Analisis por Zona"),
-        dbc.Tab(tab3_content, label="Zona Americas"),
-        dbc.Tab(tab4_content, label="Zona NQS Sur"),
-        dbc.Tab(tab5_content, label="Zona Calle 80"),
-        dbc.Tab(tab6_content, label="Zona Calle 26"),
-        dbc.Tab(tab7_content, label="Zona Caracas"),
-        dbc.Tab(tab8_content, label="Zona Carrera 10"),
-        dbc.Tab(tab9_content, label="Zona Suba"),
-        dbc.Tab(tab10_content, label="Zona Caracas Sur"),
-        dbc.Tab(tab11_content, label="Zona Norte"),
+        dbc.Tab(tab2_content, label="Analisis por Linea"),
+        dbc.Tab(tab3_content, label="Linea Americas"),
+        dbc.Tab(tab4_content, label="Linea  NQS Sur"),
+        dbc.Tab(tab5_content, label="Linea Calle 80"),
+        dbc.Tab(tab6_content, label="Linea  Calle 26"),
+        dbc.Tab(tab7_content, label="Linea  Caracas"),
+        dbc.Tab(tab8_content, label="Linea  Carrera 10"),
+        dbc.Tab(tab9_content, label="Linea  Suba"),
+        dbc.Tab(tab10_content, label="Linea  Caracas Sur"),
+        dbc.Tab(tab11_content, label="Linea  Norte"),
     ]),
     # ------------------------------------------------- Graficos de barras -------------------------------------------------
     # Usuarios por zona
@@ -813,7 +1055,17 @@ app.layout = html.Div(children=[
                 )
             ]
         ),
-   
+   dbc.Tabs([
+       dbc.Tab(tab12_content, label="Horas Americas"),
+       dbc.Tab(tab13_content, label="Horas Bosa"),
+       dbc.Tab(tab14_content, label="Horas Calle 80"),
+       dbc.Tab(tab15_content, label="Horas Bolivar"),
+       dbc.Tab(tab16_content, label="Horas Engativa"),
+       dbc.Tab(tab17_content, label="Horas Fontibon"),
+       dbc.Tab(tab18_content, label="Horas Kennedy"),
+       dbc.Tab(tab19_content, label="Horas Perdomo"),
+       dbc.Tab(tab20_content, label="Horas Cristobal"),
+   ]),
     # ------------------------------------------------- Tabs Grafico Lineas -------------------------------------------------                            
     
     html.Label('Color Picker'),
