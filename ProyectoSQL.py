@@ -42,8 +42,7 @@ def salidas_hora_pico_3_8():
                 WHERE intervalo >= '15:00:00' AND intervalo <= '20:00:00'
                 GROUP BY id_Estacion
                 ORDER BY total_salidas DESC
-                Limit 10; """
-                
+                Limit 10; """             
 def generar_grafico_pie_zonas():
     return """SELECT z.nombre AS zona, COUNT(*) AS cantidad
                FROM Zona z
@@ -138,3 +137,165 @@ def salidas_NORTE():
                  LEFT JOIN Salidas s ON e.id = s.id_Estacion
                  WHERE z.id = 18
                  GROUP BY z.id, z.nombre, e.id, e.nombre;"""   
+
+def tipo_emision():
+   return  """SELECT Zona.nombre AS nombre, COUNT(*) AS vehiculos
+            FROM Vehiculo
+            JOIN Nivel_emision ON Vehiculo.id_Nivel_emision = Nivel_emision.id
+            JOIN Zona ON Vehiculo.id_Zona = Zona.id
+            GROUP BY Zona.nombre, Nivel_emision.tipo;
+            """
+
+def  emision_BOSA():
+    return """SELECT ne.tipo AS nivel_emision, COUNT(*) AS total_vehiculos
+                FROM Vehiculo v
+                INNER JOIN Nivel_emision ne ON v.id_Nivel_emision = ne.id
+                INNER JOIN Zona z ON v.id_Zona = z.id
+                WHERE z.id = 2
+                GROUP BY ne.tipo;"""
+
+def mas_y_menos():
+    return """SELECT estacion_mas_salidas.estacion, estacion_mas_salidas.total_salidas
+                FROM (
+                    SELECT e.nombre AS estacion, COUNT(s.id) AS total_salidas
+                    FROM Estacion e
+                    JOIN Salidas s ON e.id = s.id_Estacion
+                    GROUP BY e.nombre
+                    ORDER BY total_salidas DESC
+                    LIMIT 1
+                ) AS estacion_mas_salidas
+                
+                UNION ALL
+                
+                SELECT estacion_menos_salidas.estacion, estacion_menos_salidas.total_salidas
+                FROM (
+                    SELECT e.nombre AS estacion, COUNT(s.id) AS total_salidas
+                    FROM Estacion e
+                    JOIN Salidas s ON e.id = s.id_Estacion
+                    GROUP BY e.nombre
+                    ORDER BY total_salidas ASC
+                    LIMIT 1
+                ) AS estacion_menos_salidas;
+                
+                """
+                
+def hora_americas():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 1
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""
+                
+def hora_bosa():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 2
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""
+
+def hora_80():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 3
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""                      
+
+def hora_bolivar():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 4
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""   
+
+def hora_engativa():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 5
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""     
+
+                
+def hora_fontibon():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 6
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""
+                
+def hora_kennedy():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 7
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""
+
+def hora_perdomo():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 8
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""                      
+
+def hora_cristobal():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 9
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""   
+
+def hora_suba():
+    return """SELECT AHZ.hora_del_dia, AHZ.cantidad_transacciones
+                FROM Zona Z
+                JOIN (
+                    SELECT E.id_Linea, DATE_PART('hour', S.intervalo) AS hora_del_dia, SUM(S.total) AS cantidad_transacciones
+                    FROM Salidas S
+                    INNER JOIN Estacion E ON E.id = S.id_Estacion
+                    GROUP BY E.id_Linea, hora_del_dia
+                ) AHZ ON Z.id = AHZ.id_Linea
+                Where id = 10
+                ORDER BY Z.nombre, AHZ.hora_del_dia;"""       
